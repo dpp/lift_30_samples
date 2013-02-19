@@ -80,7 +80,7 @@ class Boot {
     LiftRules.dispatch.append(DelayedRest)
 
     LiftRules.dataAttributeProcessor.append {
-      case ("wombat", str, nodes) =>
+      case ("wombat", str, nodes, _) =>
         ("div *+" #> str).apply(nodes)
     }
 
