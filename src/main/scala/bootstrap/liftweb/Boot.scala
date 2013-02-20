@@ -1,6 +1,7 @@
 package bootstrap.liftweb
 
 import net.liftweb._
+import javascript.JavaScriptContext
 import util._
 import Helpers._
 
@@ -83,6 +84,8 @@ class Boot {
       case ("wombat", str, nodes, _) =>
         ("div *+" #> str).apply(nodes)
     }
+
+    JavaScriptContext.install()
 
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
