@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
     <title>Home</title>
-  </head>
-  <body class="lift:content_id=main">
-    <div id="main" class="lift:surround?with=default;at=content">
-      <h2>Welcome to your project!</h2>
-        <div data-wombat="David">My wombat is named: </div>
+</head>
+<body class="lift:content_id=main">
+<div id="main" class="lift:surround?with=default;at=content">
+    <h2>Welcome to your project!</h2>
 
-        <div id="foo">Hi... I'm the foo div</div>
+    <div data-wombat="David">My wombat is named:</div>
+
+    <div id="foo">Hi... I'm the foo div</div>
 
 
-        <div>Enter some text <input id="in"> and <button onclick="sendToServer(document.getElementById('in').value)">Click me</button> </div>
+    <div>Enter some text <input id="in"> and
+        <button onclick="sendToServer(document.getElementById('in').value)">Click me</button>
+    </div>
 
-      <p>
+    <p>
 	<span class="lift:helloWorld.howdy">
 	  Welcome to your Lift app at <span id="time">Time goes here</span>
 	</span>
 
-          <div data-lift="ActNice">this will disappear</div>
+    <div data-lift="ActNice">this will disappear</div>
+    <hr>
+
+    <ul>
+        <li data-jssource="* *+ #> [1,2,'dog', 'hi']">Thing:</li>
+    </ul>
+
+    <ul>
+        <li data-jssource="[{'name': 'David', age: 49}, {name: 'Archer', age: 9}]">
+            <span data-jssource="* *+ #> it.name">Name: </span>
+            <span data-jssource="* *+ #> it.age">Age: </span>
+
+
+        </li>
+    </ul>
+
+
+    <div>
+        Visi stuff here!
+        Input a number: <input id="number"><br>
+        Input a second number: <input id="n2"><br>
         <hr>
+        Plus 1: <span id="plus_one"></span><br>
+        Sum: <span id="sum"></span><br>
+        Prod: <span id="prod"></span><br>
+        <script data-visi="true">
+            ?number
+            ?n2
 
-        <ul>
-            <li data-jssource="* *+ #> [1,2,'dog', 'hi']">Thing: </li>
-        </ul>
-
-        <ul>
-            <li data-jssource="[{'name': 'David', age: 49}, {name: 'Archer', age: 9}]">
-                <span data-jssource="* *+ #> it.name">Name: </span>
-                <span data-jssource="* *+ #> it.age">Age: </span>
+            "sum" = number + n2
+            "prod" = number * n2
+            "plus_one" = number + 1
+        </script>
 
 
-            </li>
-        </ul>
 
-      </p>
     </div>
-  </body>
+
+    </p>
+</div>
+</body>
 </html>
 

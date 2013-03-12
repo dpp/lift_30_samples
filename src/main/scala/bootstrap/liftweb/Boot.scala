@@ -13,7 +13,7 @@ import Loc._
 import mapper._
 
 import code.model._
-import code.lib.DelayedRest
+import code.lib.{VisiBinding, DelayedRest}
 
 
 /**
@@ -86,6 +86,7 @@ class Boot {
     }
 
     JavaScriptContext.install()
+    VisiBinding.init()
 
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
