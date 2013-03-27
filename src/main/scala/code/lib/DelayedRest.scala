@@ -13,7 +13,7 @@ import net.liftweb.actor.LAFuture
 object DelayedRest extends RestHelper {
   serve {
     case "delay" :: Nil Get _ =>
-    LAFuture(() => {
+    LAFuture.build({
       Thread.sleep(2000)
       <b>Hello</b>})
   }

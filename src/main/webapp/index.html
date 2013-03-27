@@ -6,9 +6,37 @@
 </head>
 <body class="lift:content_id=main">
 <div id="main" class="lift:surround?with=default;at=content">
-    <h2>Welcome to your project!</h2>
+
+    <div>
+        Simple Stuff
+        <hr>
+
+        <ul data-lift="FixedList">
+            <li>A list item</li>
+            <li class="clearable">Another list item</li>
+        </ul>
+    </div>
+
+
+    <div>
+        Random Stuff
+        <hr>
+
+        <ul data-lift="RandomList">
+            <li>A list item</li>
+        </ul>
+    </div>
+
+
+    <div data-lift="Munger">
+
+    </div>
+
 
     <div data-wombat="David">My wombat is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+
+    <hr>
 
     <div id="foo">Hi... I'm the foo div</div>
 
@@ -17,45 +45,83 @@
         <button onclick="sendToServer(document.getElementById('in').value)">Click me</button>
     </div>
 
+    <hr>
+
+    <div id="foo2">Hi... I'm the foo div</div>
+
+
+    <div>Enter some text <input id="in2"> and
+        <button onclick="myFuncs.thing(document.getElementById('in2').value).onSuccess(function(v) {document.getElementById('foo2').innerHTML = v;})">Click me</button>
+    </div>
+
     <p>
-	<span class="lift:helloWorld.howdy">
-	  Welcome to your Lift app at <span id="time">Time goes here</span>
-	</span>
 
     <div data-lift="ActNice">this will disappear</div>
     <hr>
 
+    <div data-jssource="false ? '' : []">
+        Hi!
+        <hr>
+    </div>
+
+
+
     <ul>
-        <li data-jssource="* *+ #> [1,2,'dog', 'hi']">Thing:</li>
+        <li data-jssource="* *+ #> ['fpx',2,'dog', 'hi']">Wombat: </li>
     </ul>
 
     <ul>
-        <li data-jssource="[{'name': 'David', age: 49}, {name: 'Archer', age: 9}]">
+        <li data-jssource="[{'name': 'David', age: 49},{'name': 'Wombat'}, {name: 'Archer', age: 9}]">
             <span data-jssource="* *+ #> it.name">Name: </span>
             <span data-jssource="* *+ #> it.age">Age: </span>
-
-
         </li>
     </ul>
 
 
     <div>
         Visi stuff here!
-        Input a number: <input id="number"><br>
-        Input a second number: <input id="n2"><br>
+        Tax Rate: <input id="taxRate"><br>
+        Taxable: <input id="taxable"><br>
+        Non-taxable: <input id="nonTaxable"><br>
         <hr>
-        Plus 1: <span id="plus_one"></span><br>
-        Sum: <span id="sum"></span><br>
+        Total: <span id="Total"></span><br>
+        Tax: <span id="Tax"></span><br>
         Prod: <span id="prod"></span><br>
+
+
         <script data-visi="true">
-            ?number
-            ?n2
+            # Whole Example
 
-            "sum" = number + n2
-            "prod" = number * n2
-            "plus_one" = number + 1
+            This is a complete example of a Visi model.  The input section defines what sources (inputs) are supplied to the model.  Each time one of those sources changes, Visi recomputes the dependent sinks (outputs) and updates the sinks based on the business logic.
+
+
+            The inputs: taxRate, taxable, and nonTaxable
+
+            ```
+            /* A big multi-line expression */
+            ?taxRate // source the tax rate
+            ?taxable // the taxable amount
+            ?nonTaxable // the nontaxable amount
+            ```
+
+            Perform the computations calculating the subtotal, the tax amount and the total.
+
+            ```
+            // computation
+            subtotal = taxable + nonTaxable
+            tax = taxable * taxRate
+            total = subtotal + tax
+            ```
+
+            Output the stuff.
+
+            ```
+            // the output or "sink" section
+            "Total" = total // sink the total
+            "Tax" = tax // sink the tax
+            ````
+
         </script>
-
 
 
     </div>
