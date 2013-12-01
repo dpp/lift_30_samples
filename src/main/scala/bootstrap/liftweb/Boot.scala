@@ -86,10 +86,14 @@ class Boot {
         ("div *+" #> str).apply(nodes)
 
       case ("sloth", str, nodes, _) =>
-      LAFuture.build({
-        Thread.sleep(100)
-        ("div *+" #> str).apply(nodes)
-      })
+        LAFuture.build({
+          Thread.sleep(100)
+          ("div *+" #> str).apply(nodes)
+        })
+    }
+
+    LiftRules.tagProcessor.append {
+      case ("hr", elem, session) => (elem % ("class" -> "hr-class"))
     }
 
     JavaScriptContext.install()

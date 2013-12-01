@@ -7,34 +7,13 @@
 <body class="lift:content_id=main">
 <div id="main" class="lift:surround?with=default;at=content">
 
-    <div>
-        Simple Stuff
-        <hr>
-
-        <ul data-lift="FixedList">
-            <li>A list item</li>
-            <li class="clearable">Another list item</li>
-        </ul>
+    <div data-lift="PromisingStuff">
+        <!-- Promise-related scripts will be inserted here -->
     </div>
 
 
-    <div>
-        Random Stuff
-        <hr>
-
-        <ul data-lift="RandomList">
-            <li>A list item</li>
-        </ul>
-    </div>
-
-
-    <div data-lift="Munger">
-
-    </div>
-
-
-    <div data-wombat="David">My wombat is named:</div>
-    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-wombat="David">My wombat is named: </div>
+    <div data-sloth="Archer">My sloth is named: </div>
 
     <hr>
 
@@ -51,7 +30,7 @@
 
 
     <div>Enter some text <input id="in2"> and
-        <button onclick="myFuncs.thing(document.getElementById('in2').value).onSuccess(function(v) {document.getElementById('foo2').innerHTML = v;})">Click me</button>
+        <button onclick="myFuncs.thing(document.getElementById('in2').value).then(function(v) {document.getElementById('foo2').textContent = v;})">Click me</button>
     </div>
 
     <p>
@@ -70,6 +49,13 @@
         <li data-jssource="* *+ #> ['fpx',2,'dog', 'hi']">Wombat: </li>
     </ul>
 
+
+    <script>
+        function changeNode(str) {
+          document.getElementById("foo").textContent = str;
+        }
+    </script>
+
     <ul>
         <li data-jssource="[{'name': 'David', age: 49},{'name': 'Wombat'}, {name: 'Archer', age: 9}]">
             <span data-jssource="* *+ #> it.name">Name: </span>
@@ -77,54 +63,24 @@
         </li>
     </ul>
 
-
-    <div>
-        Visi stuff here!
-        Tax Rate: <input id="taxRate"><br>
-        Taxable: <input id="taxable"><br>
-        Non-taxable: <input id="nonTaxable"><br>
-        <hr>
-        Total: <span id="Total"></span><br>
-        Tax: <span id="Tax"></span><br>
-        Prod: <span id="prod"></span><br>
-
-
-        <script data-visi="true">
-            # Whole Example
-
-            This is a complete example of a Visi model.  The input section defines what sources (inputs) are supplied to the model.  Each time one of those sources changes, Visi recomputes the dependent sinks (outputs) and updates the sinks based on the business logic.
-
-
-            The inputs: taxRate, taxable, and nonTaxable
-
-            ```
-            /* A big multi-line expression */
-            ?taxRate // source the tax rate
-            ?taxable // the taxable amount
-            ?nonTaxable // the nontaxable amount
-            ```
-
-            Perform the computations calculating the subtotal, the tax amount and the total.
-
-            ```
-            // computation
-            subtotal = taxable + nonTaxable
-            tax = taxable * taxRate
-            total = subtotal + tax
-            ```
-
-            Output the stuff.
-
-            ```
-            // the output or "sink" section
-            "Total" = total // sink the total
-            "Tax" = tax // sink the tax
-            ````
-
-        </script>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
+    <div data-sloth="Archer">My sloth is named:</div>
 
 
-    </div>
 
     </p>
 </div>

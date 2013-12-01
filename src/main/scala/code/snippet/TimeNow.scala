@@ -10,11 +10,3 @@ import net.liftweb.util.ClearClearable
 class TimeNow {
   def render = "1 *+" #> (new Date).toString
 }
-
-class RandomList {
-  def render = "li *" #> (0 to randomInt(10)).map(_ => "<b>"+randomString(5)+"</b>")
-}
-
-class FixedList {
-  def render = "li *" #> List("1", "fish", "red", "star") & ClearClearable
-}

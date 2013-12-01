@@ -24,8 +24,7 @@ object ActNice {
         }
       }
 
-      Script(JsRaw("var sendToServer = " + sess.clientActorFor(serverActor).toJsCmd).cmd &
-        JsRaw("function changeNode(str) {document.getElementById(\"foo\").innerHTML = str;}").cmd)
+      Script(JsRaw("var sendToServer = " + sess.clientActorFor(serverActor).toJsCmd).cmd)
     }) openOr NodeSeq.Empty
   }
 }
